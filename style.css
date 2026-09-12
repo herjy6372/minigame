@@ -1,0 +1,43 @@
+:root { color-scheme: light; font-family: Arial,"Malgun Gothic",sans-serif; color: #18324a; background: #dceffc; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 16px; background: radial-gradient(at top left,#fff,transparent),linear-gradient(145deg,#d9efff,#80bfe9); }
+.game-card { width: min(100%,560px); padding: 22px; background: #fffffff2; border-radius: 24px; box-shadow: 0 16px 45px #173f7026; }
+header { text-align: center; }
+.eyebrow { margin: 0 0 6px; color: #2563a9; font-weight: 700; font-size: .8rem; }
+h1 { margin: 0; font-size: clamp(1.35rem,5vw,2rem); color: #173f70; }
+#guide-text { font-size: .9rem; line-height: 1.5; margin: 10px 0 14px; }
+.status-board { display: flex; gap: 10px; margin-bottom: 12px; }
+.status-board > div { flex: 1; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #eaf5ff; border: 1px solid #c7e4fb; border-radius: 12px; }
+.status-board strong { font-size: 1.6rem; color: #173f70; }
+small { font-size: .8rem; margin-left: 3px; }
+.maze-wrap { position: relative; width: min(100%,49svh); margin: auto; }
+#maze { width: 100%; aspect-ratio: 1; display: grid; grid-template-columns: repeat(11,1fr); grid-template-rows: repeat(11,1fr); border: 3px solid #173f70; border-radius: 10px; overflow: hidden; background: #dfb47c url('./images/background.png') center / cover; }
+.cell { position: relative; min-width: 0; min-height: 0; background: #fff0cdcf; box-shadow: inset 0 0 0 .5px #bc925640; }
+.wall { background: #28547a; border: 1px solid #38688f; box-shadow: inset 0 2px 0 #ffffff17; }
+.entrance { background: #c8e5ff; }
+.exit { background: #b2eea3; box-shadow: inset 0 0 0 2px #2b8937; }
+.door { width: 100%; height: 100%; object-fit: contain; display: block; }
+.cell-label { position: absolute; inset: auto 0 0; text-align: center; font-size: clamp(6px,1.8vw,9px); font-weight: 800; color: #143e1d; background: #ffffffcf; }
+.player { position: absolute; inset: 0; z-index: 2; background: url('./images/cat.png') 100% 0 / 200% 200%; filter: drop-shadow(0 1px 1px #50371055); }
+.player[data-direction="up"] { background-position: 0 0; }
+.player[data-direction="left"] { background-position: 0 100%; }
+.player[data-direction="right"] { background-position: 100% 100%; }
+.player.fallback { background-image: none; display: grid; place-items: center; font-size: clamp(14px,4vw,30px); }
+.panel { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-50%); width: 88%; padding: 20px 12px; border: 2px solid #fff; border-radius: 16px; background: #fffffff5; text-align: center; z-index: 3; box-shadow: 0 10px 30px #18324a44; }
+[hidden] { display: none !important; }
+.panel h2 { margin: 0; color: #173f70; font-size: 1.4rem; }
+.panel strong { color: #b94a18; font-size: 1.6rem; }
+.legend,.score-rule { text-align: center; font-size: .75rem; margin: 9px 0; color: #446079; }
+.controls { display: flex; justify-content: center; align-items: center; gap: 24px; }
+.direction-pad { display: grid; grid-template-columns: repeat(3,44px); grid-template-rows: repeat(2,44px); gap: 4px; }
+button { font: inherit; cursor: pointer; touch-action: manipulation; border: 0; }
+.direction-pad button { background: #e5f1ff; color: #173f70; border: 1px solid #b6d4ef; border-radius: 10px; font-size: 1.5rem; }
+.direction-pad [data-direction="up"] { grid-column: 2; }
+.direction-pad [data-direction="left"] { grid-column: 1; grid-row: 2; }
+.direction-pad [data-direction="down"] { grid-column: 2; grid-row: 2; }
+.direction-pad [data-direction="right"] { grid-column: 3; grid-row: 2; }
+.primary-button { padding: 13px 18px; border-radius: 12px; background: #2563a9; color: white; font-weight: 700; min-height: 46px; }
+button:disabled { opacity: .4; cursor: default; }
+button:enabled:active { transform: translateY(2px); }
+button:focus-visible,#maze:focus-visible { outline: 3px solid #e5a326; outline-offset: 3px; }
+@media (max-width: 400px) { body { padding: 8px; } .game-card { padding: 14px; } .controls { gap: 16px; } }

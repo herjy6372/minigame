@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="방향키로 고양이를 움직여 30초 안에 미로를 탈출하세요.">
+<title>미로 탈출 한 칸 모험</title><link rel="stylesheet" href="./style.css">
+</head>
+<body><main class="game-card">
+<header><p class="eyebrow">고양이의 교실 탈출</p><h1>미로 탈출 한 칸 모험</h1><p id="guide-text">방향키 또는 아래 버튼으로 이동해 30초 안에 출구로 가세요.</p></header>
+<section class="status-board" aria-label="게임 상태"><div>점수 <strong id="score">0</strong></div><div>남은 시간 <strong><span id="time-left">30</span><small>초</small></strong></div></section>
+<div class="maze-wrap"><div id="maze" role="img" aria-label="미로" tabindex="0"></div><section id="result-panel" class="panel" aria-live="polite" hidden><h2 id="result-title"></h2><p>최종 점수 <strong id="final-score">0</strong>점</p><button id="restart-button" class="primary-button">다시 하기</button></section></div>
+<p class="legend">🐱 나 · 초록 문: 출구 · 파란 칸: 벽</p>
+<div class="controls"><div class="direction-pad" role="group" aria-label="이동 방향"><button data-direction="up" aria-label="위로 이동" disabled>↑</button><button data-direction="left" aria-label="왼쪽으로 이동" disabled>←</button><button data-direction="down" aria-label="아래로 이동" disabled>↓</button><button data-direction="right" aria-label="오른쪽으로 이동" disabled>→</button></div><button id="start-button" class="primary-button">게임 시작</button></div>
+<p class="score-rule">탈출 성공: 100점 + 남은 시간 × 10점</p>
+<audio id="cat-sound" src="./sounds/cat-meow.wav" preload="auto"></audio>
+</main><script src="./game.js"></script></body></html>
